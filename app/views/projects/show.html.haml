@@ -1,8 +1,13 @@
 %h1= @project.title
 
+- if @project.tickets.any?
+  %ul
+    - @project.tickets.each do |ticket|
+      %li= link_to ticket.title,[@project,ticket]
+
 = link_to "Edit", edit_project_path(@project)
 %br
-= link_to "Delete", project_path(@project), method: :delete
+= link_to "Delete Project", project_path(@project), method: :delete
 %br
 = link_to "Home",root_url
 %br

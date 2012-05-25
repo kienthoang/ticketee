@@ -28,6 +28,23 @@ class TicketsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @ticket.update_attributes! params[:ticket]
+    redirect_to [@project,@ticket],notice: "Ticket has been updated."
+
+  rescue
+    flash[:alert]="Ticket has not been updated."
+    render "edit"
+  end
+
+  def destroy
+    @ticket.destroy
+    redirect_to @project,notice: "Ticket has been deleted."
+  end
+
 private
   def find_project
     @project = Project.find params[:project_id]

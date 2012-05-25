@@ -1,3 +1,7 @@
 %h1= @ticket.title
 
 %p#description= @ticket.description
+
+= link_to "Edit Ticket",edit_project_ticket_path(@project,@ticket)
+%br
+= link_to "Delete Ticket",project_ticket_path(@project,@ticket),method: :delete

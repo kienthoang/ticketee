@@ -4,6 +4,6 @@ end
 
 Then /the following projects exist:/ do |table|
   table.hashes.each do |project|
-    Project.create! project
+    @project=Project.create! project
   end
 end

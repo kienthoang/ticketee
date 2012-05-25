@@ -1,0 +1,9 @@
+%h1= @project.title
+
+= link_to "Edit", edit_project_path(@project)
+%br
+= link_to "Delete", project_path(@project), method: :delete
+%br
+= link_to "Home",root_url
+%br
+= link_to "New Ticket",new_project_ticket_path(@project)

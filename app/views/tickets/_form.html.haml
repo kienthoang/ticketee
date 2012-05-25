@@ -1,0 +1,18 @@
+%div.form
+  - if @ticket.errors.any?
+    %fieldset
+      %legend Errors
+      %ul
+        - @ticket.errors.full_messages.each do |msg|
+          %li= msg
+
+  %fieldset
+    %legend Project Information
+    = form_for [@project,@ticket] do |f|
+      = f.label :title
+      = f.text_field :title
+
+      = f.label :description
+      = f.text_area :description
+
+      = f.submit
